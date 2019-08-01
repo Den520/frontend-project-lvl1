@@ -2,20 +2,23 @@
   "name": "@naruto02123/project",
   "version": "1.0.0",
   "description": "",
-  "main": "brain-games.js",
-  "files": [
-    "dist"
-  ],
+  "main": "dist/index.js",
   "bin": {
     "brain-games": "dist/bin/brain-games.js"
   },
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "NODE_ENV=production babel src --out-dir dist --source-maps inline",
     "prepublishOnly": "npm run build"
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {},
+  "dependencies": {
+    "babel-preset-env": "^1.7.0",
+    "readline-sync": "^1.4.10"
+  },
   "devDependencies": {
     "@babel/cli": "^7.5.5",
     "@babel/core": "^7.5.5",
