@@ -1,4 +1,4 @@
-export const presets = [
+const presets = [
     ['@babel/env', {
         targets: {
             node: 'current',

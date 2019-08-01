@@ -1,10 +1,17 @@
 {
-  "name": "project",
+  "name": "@naruto02123/project",
   "version": "1.0.0",
   "description": "",
   "main": "brain-games.js",
+  "files": [
+    "dist"
+  ],
+  "bin": {
+    "brain-games": "dist/bin/brain-games.js"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "NODE_ENV=production babel src --out-dir dist --source-maps inline",
+    "prepublishOnly": "npm run build"
   },
   "author": "",
   "license": "ISC",
