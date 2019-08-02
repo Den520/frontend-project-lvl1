@@ -9,4 +9,4 @@ Test Coverage Badge:
 
 
 Travis-ci:
-https://travis-ci.org/Den520/frontend-project-lvl1.svg?branch=master
+<a href="https://travis-ci.org/Den520/frontend-project-lvl1"><img src="https://travis-ci.org/Den520/frontend-project-lvl1.svg?branch=master" /></a>
