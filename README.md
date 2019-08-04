@@ -10,3 +10,6 @@ Test Coverage Badge:
 
 Travis-ci:
 <a href="https://travis-ci.org/Den520/frontend-project-lvl1"><img src="https://travis-ci.org/Den520/frontend-project-lvl1.svg?branch=master" /></a>
+
+Asciinema:
+<a href="https://asciinema.org/a/zqw5pIvTjMDeMmQ4iIIoCs1ZM" target="_blank"><img src="https://asciinema.org/a/zqw5pIvTjMDeMmQ4iIIoCs1ZM.svg" /></a>
