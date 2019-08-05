@@ -1,6 +1,10 @@
 import readlineSync from 'readline-sync';
 
-const welcome = () => console.log('Welcome to the Brain Games!');
+const begin = (task) => {
+  console.log('Welcome to the Brain Games!');
+  console.log(task);
+};
+
 const name = () => {
   console.log('');
   const actual = readlineSync.question('May I have your name? ');
@@ -8,14 +12,45 @@ const name = () => {
   console.log('');
   return actual;
 };
-const congratulate = user => console.log(`Congratulations, ${user}!`);
-const random = () => Math.floor(Math.random() * (50 - 1 + 1)) + 1;
-const answer = () => {
-  const actual = readlineSync.question('Your answer: ');
-  return actual;
+
+const randomNum = () => Math.floor(Math.random() * (50)) + 1;
+
+const randomInRange = range => Math.floor(Math.random() * range);
+
+const resultOfAnswer = (username, correctAnswer) => {
+  const answer = () => {
+    const actual = readlineSync.question('Your answer: ');
+    return actual;
+  };
+  const realAnswer = correctAnswer();
+  const userAnswer = answer();
+  if (userAnswer === realAnswer) {
+    console.log('Correct!');
+    return true;
+  }
+  console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${realAnswer}'.`);
+  console.log(`Let's try again, ${username}!`);
+  return false;
 };
-const question = (user) => {
-  const num = random();
+
+const repeat = (quest, username) => {
+  let question1 = quest(username);
+  let count = 0;
+  while (question1 === true && count < 2) {
+    question1 = quest(username);
+    if (question1 === true) {
+      count += 1;
+    }
+  }
+  if (count === 2) {
+    console.log(`Congratulations, ${username}!`);
+  }
+};
+
+const question = quest => console.log(quest);
+
+const questionEven = (username) => {
+  const num = randomNum();
   const correctAnswer = () => {
     let result = '';
     if (num % 2 === 0) {
@@ -25,17 +60,31 @@ const question = (user) => {
     }
     return result;
   };
-  console.log(`Question: ${num}`);
-  const realAnswer = correctAnswer();
-  const userAnswer = answer();
-  if (userAnswer === realAnswer) {
-    console.log('Correct!');
-    return true;
-  }
-  console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${realAnswer}'.`);
-  console.log(`Let's try again, ${user}!`);
-  return false;
+  question(`Question: ${num}`);
+  return resultOfAnswer(username, correctAnswer);
 };
+
+const questionCalc = (username) => {
+  const sign = '+-*'[randomInRange(3)];
+  const num1 = randomNum();
+  const num2 = randomNum();
+  const correctAnswer = () => {
+    let result = 0;
+    if (sign === '+') {
+      result = num1 + num2;
+    }
+    if (sign === '-') {
+      result = num1 - num2;
+    }
+    if (sign === '*') {
+      result = num1 * num2;
+    }
+    return `${result}`;
+  };
+  question(`${num1} ${sign} ${num2}`);
+  return resultOfAnswer(username, correctAnswer);
+};
+
 export {
-  name, welcome, random, question, answer, congratulate,
+  name, begin, questionEven, questionCalc, repeat,
 };

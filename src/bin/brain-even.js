@@ -1,18 +1,8 @@
 #!/usr/bin/env node
 import {
-  name, welcome, question, congratulate,
+  name, begin, repeat, questionEven,
 } from '..';
 
-welcome();
-console.log('Answer "yes" if number even otherwise answer "no".');
+begin('Answer "yes" if number even otherwise answer "no".');
 const username = name();
-let question1 = question(username);
-if (question1) {
-  question1 = question(username);
-  if (question1) {
-    question1 = question(username);
-    if (question1) {
-      congratulate(username);
-    }
-  }
-}
+repeat(questionEven, username);
