@@ -24,7 +24,7 @@ const resultOfAnswer = (username, correctAnswer) => {
   };
   const realAnswer = correctAnswer();
   const userAnswer = answer();
-  if (userAnswer === realAnswer) {
+  if (`${userAnswer}` === `${realAnswer}`) {
     console.log('Correct!');
     return true;
   }
@@ -47,7 +47,7 @@ const repeat = (quest, username) => {
   }
 };
 
-const question = quest => console.log(quest);
+const question = quest => console.log(`Question: ${quest}`);
 
 const questionEven = (username) => {
   const num = randomNum();
@@ -60,7 +60,7 @@ const questionEven = (username) => {
     }
     return result;
   };
-  question(`Question: ${num}`);
+  question(num);
   return resultOfAnswer(username, correctAnswer);
 };
 
@@ -85,6 +85,43 @@ const questionCalc = (username) => {
   return resultOfAnswer(username, correctAnswer);
 };
 
+const questionGcd = (username) => {
+  let num1 = randomNum();
+  let num2 = randomNum();
+  let divider = 2;
+  let result = '';
+  let newResult = 1;
+  let count = 0;
+  const correctAnswer = () => {
+    if (num1 === num2) {
+      return num1;
+    }
+    while ((num1 || num2) % divider === 0) {
+      if ((num1 && num2) % divider === 0) {
+        result += `${divider}`;
+        count += 1;
+      }
+      if (num1 % divider === 0) {
+        num1 /= divider;
+      }
+      if (num2 % divider === 0) {
+        num2 /= divider;
+      }
+    }
+    if (num1 && num2 > 1 && divider < 50) {
+      divider += 1;
+      return correctAnswer();
+    }
+    while (count > 0) {
+      newResult *= parseFloat(result[count - 1]);
+      count -= 1;
+    }
+    return newResult;
+  };
+  question(`${num1} ${num2}`);
+  return resultOfAnswer(username, correctAnswer);
+};
+
 export {
-  name, begin, questionEven, questionCalc, repeat,
+  name, begin, repeat, questionEven, questionCalc, questionGcd,
 };

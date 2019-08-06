@@ -15,3 +15,5 @@ ASCIINEMA
         <a href="https://asciinema.org/a/zqw5pIvTjMDeMmQ4iIIoCs1ZM" target="_blank"><img src="https://asciinema.org/a/zqw5pIvTjMDeMmQ4iIIoCs1ZM.svg" /></a>
     brain-calc:
         <a href="https://asciinema.org/a/a2Id6QdJBZyqgEW22uCo0NUGl" target="_blank"><img src="https://asciinema.org/a/a2Id6QdJBZyqgEW22uCo0NUGl.svg" /></a>
+    brain-gcd:
+        <a href="https://asciinema.org/a/7KTRFqTAmnYMtWYfWRFZOlPwd" target="_blank"><img src="https://asciinema.org/a/7KTRFqTAmnYMtWYfWRFZOlPwd.svg" /></a>
