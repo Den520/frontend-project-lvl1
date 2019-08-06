@@ -141,6 +141,27 @@ const questionProgression = (username) => {
   return resultOfAnswer(username, correctAnswer);
 };
 
+const questionPrime = (username) => {
+  const num = randomNum();
+  const correctAnswer = () => {
+    let result = 0;
+    for (let count = 1; count <= num; count += 1) {
+      if (num % count === 0) {
+        result += 1;
+      }
+    }
+    if (result === 2) {
+      return 'yes';
+    }
+    return 'no';
+  };
+  question(num);
+  return resultOfAnswer(username, correctAnswer);
+};
+
 export {
-  name, begin, repeat, questionEven, questionCalc, questionGcd, questionProgression,
+  name, begin, repeat,
+  questionEven, questionCalc,
+  questionGcd, questionProgression,
+  questionPrime,
 };
