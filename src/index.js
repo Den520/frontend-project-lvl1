@@ -122,6 +122,25 @@ const questionGcd = (username) => {
   return resultOfAnswer(username, correctAnswer);
 };
 
+const questionProgression = (username) => {
+  let num1 = randomNum();
+  const interval = randomNum();
+  const space = randomInRange(10);
+  let result = '';
+  const spaceNum = num1 + ((space + 1) * interval);
+  for (let count = 0; count < 10; count += 1) {
+    num1 += interval;
+    if (space === count) {
+      result += '.. ';
+    } else {
+      result += `${num1} `;
+    }
+  }
+  const correctAnswer = () => spaceNum;
+  question(result);
+  return resultOfAnswer(username, correctAnswer);
+};
+
 export {
-  name, begin, repeat, questionEven, questionCalc, questionGcd,
+  name, begin, repeat, questionEven, questionCalc, questionGcd, questionProgression,
 };
