@@ -136,15 +136,22 @@ const questionProgression = (username) => {
 
 const questionPrime = (username) => {
   const num = randomNum();
+  let result = 0;
+  let count = 1;
   const correctAnswer = () => {
-    let result = 0;
-    for (let count = 1; count <= num; count += 1) {
-      if (num % count === 0) {
+    switch (true) {
+      case (count > num):
+        return result === 2 ? 'yes' : 'no';
+
+      case (num % count === 0):
         result += 1;
-      }
+        count += 1;
+        return correctAnswer();
+
+      default:
+        count += 1;
+        return correctAnswer();
     }
-    result = (result === 2) ? 'yes' : 'no';
-    return result;
   };
   return resultOfAnswer(num, username, correctAnswer);
 };
