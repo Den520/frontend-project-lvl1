@@ -19,7 +19,8 @@ const randomNum = () => {
 };
 const randomInRange = range => Math.floor(Math.random() * range);
 
-const resultOfAnswer = (username, correctAnswer) => {
+const resultOfAnswer = (quest, username, correctAnswer) => {
+  console.log(`Question: ${quest}`);
   const answer = () => {
     const actual = readlineSync.question('Your answer: ');
     return actual;
@@ -49,8 +50,6 @@ const repeat = (quest, username) => {
   }
 };
 
-const question = quest => console.log(`Question: ${quest}`);
-
 const questionEven = (username) => {
   const num = randomNum();
   const correctAnswer = () => {
@@ -62,8 +61,7 @@ const questionEven = (username) => {
     }
     return result;
   };
-  question(num);
-  return resultOfAnswer(username, correctAnswer);
+  return resultOfAnswer(num, username, correctAnswer);
 };
 
 const questionCalc = (username) => {
@@ -89,8 +87,7 @@ const questionCalc = (username) => {
     }
     return result;
   };
-  question(`${num1} ${sign} ${num2}`);
-  return resultOfAnswer(username, correctAnswer);
+  return resultOfAnswer(`${num1} ${sign} ${num2}`, username, correctAnswer);
 };
 
 const questionGcd = (username) => {
@@ -116,8 +113,7 @@ const questionGcd = (username) => {
     }
     return result;
   };
-  question(`${num1} ${num2}`);
-  return resultOfAnswer(username, correctAnswer);
+  return resultOfAnswer(`${num1} ${num2}`, username, correctAnswer);
 };
 
 const questionProgression = (username) => {
@@ -135,8 +131,7 @@ const questionProgression = (username) => {
     }
   }
   const correctAnswer = () => spaceNum;
-  question(result);
-  return resultOfAnswer(username, correctAnswer);
+  return resultOfAnswer(result, username, correctAnswer);
 };
 
 const questionPrime = (username) => {
@@ -151,8 +146,7 @@ const questionPrime = (username) => {
     result = (result === 2) ? 'yes' : 'no';
     return result;
   };
-  question(num);
-  return resultOfAnswer(username, correctAnswer);
+  return resultOfAnswer(num, username, correctAnswer);
 };
 
 export {
