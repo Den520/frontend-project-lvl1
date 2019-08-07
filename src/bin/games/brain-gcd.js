@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import {
   name, begin, repeat, questionGcd,
-} from '..';
+} from '../..';
 
 begin('Find the greatest common divisor of given numbers.');
 const username = name();

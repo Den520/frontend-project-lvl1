@@ -1,15 +1,18 @@
 {
   "name": "@naruto02123/project",
-  "version": "1.6.0",
-  "description": "Brain games",
+  "version": "1.6.1",
+  "description": "Games to pump your brain :)",
+  "keywords": [
+    "Brain games"
+  ],
   "main": "dist/index.js",
   "bin": {
     "brain-games": "dist/bin/brain-games.js",
-    "brain-even": "dist/bin/brain-even.js",
-    "brain-calc": "dist/bin/brain-calc.js",
-    "brain-gcd": "dist/bin/brain-gcd.js",
-    "brain-progression": "dist/bin/brain-progression.js",
-    "brain-prime": "dist/bin/brain-prime.js"
+    "brain-even": "dist/bin/games/brain-even.js",
+    "brain-calc": "dist/bin/games/brain-calc.js",
+    "brain-gcd": "dist/bin/games/brain-gcd.js",
+    "brain-progression": "dist/bin/games/brain-progression.js",
+    "brain-prime": "dist/bin/games/brain-prime.js"
   },
   "files": [
     "dist"
@@ -18,7 +21,11 @@
     "build": "NODE_ENV=production babel src --out-dir dist --source-maps inline",
     "prepublishOnly": "npm run build"
   },
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Den520/frontend-project-lvl1.git"
+  },
+  "author": "Tariel Musaev",
   "license": "ISC",
   "dependencies": {
     "babel-eslint": "^10.0.2",

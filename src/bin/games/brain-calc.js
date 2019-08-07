@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import {
   name, begin, repeat, questionCalc,
-} from '..';
+} from '../..';
 
 begin('What is the result of the expression?');
 const username = name();

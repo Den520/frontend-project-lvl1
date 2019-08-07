@@ -13,8 +13,10 @@ const name = () => {
   return actual;
 };
 
-const randomNum = () => Math.floor(Math.random() * (50)) + 1;
-
+const randomNum = () => {
+  const max = 50;
+  return Math.floor(Math.random() * (max)) + 1;
+};
 const randomInRange = range => Math.floor(Math.random() * range);
 
 const resultOfAnswer = (username, correctAnswer) => {
@@ -70,16 +72,22 @@ const questionCalc = (username) => {
   const num2 = randomNum();
   const correctAnswer = () => {
     let result = 0;
-    if (sign === '+') {
-      result = num1 + num2;
+    switch (sign) {
+      case '+':
+        result = num1 + num2;
+        break;
+
+      case '-':
+        result = num1 - num2;
+        break;
+
+      case '*':
+        result = num1 * num2;
+        break;
+
+      default:
     }
-    if (sign === '-') {
-      result = num1 - num2;
-    }
-    if (sign === '*') {
-      result = num1 * num2;
-    }
-    return `${result}`;
+    return result;
   };
   question(`${num1} ${sign} ${num2}`);
   return resultOfAnswer(username, correctAnswer);
@@ -89,17 +97,11 @@ const questionGcd = (username) => {
   let num1 = randomNum();
   let num2 = randomNum();
   let divider = 2;
-  let result = '';
-  let newResult = 1;
-  let count = 0;
+  let result = 1;
   const correctAnswer = () => {
-    if (num1 === num2) {
-      return num1;
-    }
     while ((num1 || num2) % divider === 0) {
       if ((num1 && num2) % divider === 0) {
-        result += `${divider}`;
-        count += 1;
+        result *= divider;
       }
       if (num1 % divider === 0) {
         num1 /= divider;
@@ -108,15 +110,11 @@ const questionGcd = (username) => {
         num2 /= divider;
       }
     }
-    if (num1 && num2 > 1 && divider < 50) {
+    if (((num1 && num2) > 1) && (divider < (num1 && num2))) {
       divider += 1;
       return correctAnswer();
     }
-    while (count > 0) {
-      newResult *= parseFloat(result[count - 1]);
-      count -= 1;
-    }
-    return newResult;
+    return result;
   };
   question(`${num1} ${num2}`);
   return resultOfAnswer(username, correctAnswer);
@@ -150,10 +148,8 @@ const questionPrime = (username) => {
         result += 1;
       }
     }
-    if (result === 2) {
-      return 'yes';
-    }
-    return 'no';
+    result = (result === 2) ? 'yes' : 'no';
+    return result;
   };
   question(num);
   return resultOfAnswer(username, correctAnswer);
