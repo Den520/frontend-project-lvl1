@@ -13,7 +13,11 @@ TRAVIS-CI
 
 
 ASCIINEMA
-    
+
+The installation of brain games and gameplay:
+
+<a href="https://asciinema.org/a/zV8J3qk98jHnCv6GTgCAvSgSA" target="_blank"><img src="https://asciinema.org/a/zV8J3qk98jHnCv6GTgCAvSgSA.svg" /></a>.
+
 brain-even:
     
 <a href="https://asciinema.org/a/zqw5pIvTjMDeMmQ4iIIoCs1ZM" target="_blank"><img src="https://asciinema.org/a/zqw5pIvTjMDeMmQ4iIIoCs1ZM.svg" /></a>.
