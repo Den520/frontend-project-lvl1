@@ -1,18 +1,18 @@
 {
   "name": "@naruto02123/project",
-  "version": "1.6.4",
+  "version": "1.6.7",
   "description": "Games to pump your brain :)",
   "keywords": [
     "Brain games"
   ],
-  "main": "dist/index.js",
+  "main": "",
   "bin": {
     "brain-games": "dist/bin/brain-games.js",
-    "brain-even": "dist/bin/games/brain-even.js",
-    "brain-calc": "dist/bin/games/brain-calc.js",
-    "brain-gcd": "dist/bin/games/brain-gcd.js",
-    "brain-progression": "dist/bin/games/brain-progression.js",
-    "brain-prime": "dist/bin/games/brain-prime.js"
+    "brain-even": "dist/bin/brain-even.js",
+    "brain-calc": "dist/bin/brain-calc.js",
+    "brain-gcd": "dist/bin/brain-gcd.js",
+    "brain-progression": "dist/bin/brain-progression.js",
+    "brain-prime": "dist/bin/brain-prime.js"
   },
   "files": [
     "dist"
