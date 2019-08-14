@@ -36,8 +36,8 @@ const findGcd = (firstNum1, firstNum2, firstDivider, firstResult) => {
       return findGcd(num1, num2, divider, result);
 
     default:
+      return result;
   }
-  return result;
 };
 
 const questionGcd = (username) => {
