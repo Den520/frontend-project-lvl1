@@ -1,7 +1,9 @@
 #!/usr/bin/env node
 import {
-  name, begin, repeat, resultOfAnswer, randomNum, randomInRange,
+  gameEngine, resultOfAnswer, randomNum, randomInRange,
 } from '..';
+
+const ruleOfGame = 'What number is missing in the progression?';
 
 const questionProgression = (username) => {
   let num1 = randomNum();
@@ -17,14 +19,11 @@ const questionProgression = (username) => {
       result += `${num1} `;
     }
   }
-  const correctAnswer = () => spaceNum;
-  return resultOfAnswer(result, username, correctAnswer);
+  const question = result;
+  const correctAnswer = spaceNum;
+  return resultOfAnswer(question, username, correctAnswer);
 };
 
-const fn = () => {
-  begin('What number is missing in the progression?');
-  const username = name();
-  repeat(questionProgression, username);
-};
+const progressionGame = () => gameEngine(ruleOfGame, questionProgression);
 
-export default fn;
+export default progressionGame;

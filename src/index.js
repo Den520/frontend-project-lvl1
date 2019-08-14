@@ -13,29 +13,6 @@ const name = () => {
   return actual;
 };
 
-const randomNum = () => {
-  const max = 50;
-  return Math.floor(Math.random() * (max)) + 1;
-};
-const randomInRange = range => Math.floor(Math.random() * range);
-
-const resultOfAnswer = (quest, username, correctAnswer) => {
-  console.log(`Question: ${quest}`);
-  const answer = () => {
-    const actual = readlineSync.question('Your answer: ');
-    return actual;
-  };
-  const realAnswer = correctAnswer();
-  const userAnswer = answer();
-  if (`${userAnswer}` === `${realAnswer}`) {
-    console.log('Correct!');
-    return true;
-  }
-  console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${realAnswer}'.`);
-  console.log(`Let's try again, ${username}!`);
-  return false;
-};
-
 const repeat = (quest, username) => {
   let question1 = quest(username);
   let count = 0;
@@ -50,6 +27,31 @@ const repeat = (quest, username) => {
   }
 };
 
-export {
-  name, begin, repeat, randomNum, randomInRange, resultOfAnswer,
+export const randomNum = () => {
+  const max = 50;
+  return Math.floor(Math.random() * (max)) + 1;
+};
+
+export const randomInRange = range => Math.floor(Math.random() * range);
+
+export const resultOfAnswer = (question, username, correctAnswer) => {
+  console.log(`Question: ${question}`);
+  const answer = () => {
+    const actual = readlineSync.question('Your answer: ');
+    return actual;
+  };
+  const userAnswer = answer();
+  if (`${userAnswer}` === `${correctAnswer}`) {
+    console.log('Correct!');
+    return true;
+  }
+  console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
+  console.log(`Let's try again, ${username}!`);
+  return false;
+};
+
+export const gameEngine = (ruleOfGame, game) => {
+  begin(ruleOfGame);
+  const username = name();
+  repeat(game, username);
 };
