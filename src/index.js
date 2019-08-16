@@ -31,12 +31,12 @@ const isCorrectAnswer = (game, username) => {
 
 const playGameThreeTimes = (game, username) => {
   let quest;
-  let result;
+  let result = true;
   let roundOfGame = 0;
-  while ((result === true && roundOfGame < 3) || roundOfGame === 0) {
+  while (result && roundOfGame < 3) {
     quest = game();
     result = isCorrectAnswer(quest, username);
-    if (result || roundOfGame === 0) {
+    if (result) {
       roundOfGame += 1;
     }
   }
