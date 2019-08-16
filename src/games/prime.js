@@ -19,7 +19,7 @@ const isPrime = (num) => {
 const questionPrime = (username) => {
   const num = getRandomInt(1, 50);
   const question = num;
-  const correctAnswer = (isPrime(num)) ? 'yes' : 'no';
+  const correctAnswer = (isPrime(num) === true) ? 'yes' : 'no';
   return resultOfAnswer(question, username, correctAnswer);
 };
 
