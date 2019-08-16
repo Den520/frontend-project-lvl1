@@ -28,10 +28,10 @@
   "author": "Tariel Musaev",
   "license": "ISC",
   "dependencies": {
-    "babel-preset-env": "^1.7.0",
     "readline-sync": "^1.4.10"
   },
   "devDependencies": {
+    "babel-preset-env": "^1.7.0",
     "babel-eslint": "^10.0.2",
     "eslint": "^6.1.0",
     "eslint-config-airbnb-base": "^13.2.0",
