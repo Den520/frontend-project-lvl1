@@ -14,26 +14,14 @@ TRAVIS-CI
 
 ASCIINEMA
 
-The installation of brain games and gameplay:
+The installation of brain games and gameplay:https://asciinema.org/a/zV8J3qk98jHnCv6GTgCAvSgSA
 
-<a href="https://asciinema.org/a/zV8J3qk98jHnCv6GTgCAvSgSA" target="_blank">.
-
-brain-even:
+brain-even:https://asciinema.org/a/zqw5pIvTjMDeMmQ4iIIoCs1ZM
     
-<a href="https://asciinema.org/a/zqw5pIvTjMDeMmQ4iIIoCs1ZM" target="_blank">.
+brain-calc:https://asciinema.org/a/a2Id6QdJBZyqgEW22uCo0NUGl
     
-brain-calc:
+brain-gcd:https://asciinema.org/a/7KTRFqTAmnYMtWYfWRFZOlPwd
 
-<a href="https://asciinema.org/a/a2Id6QdJBZyqgEW22uCo0NUGl" target="_blank">.
+brain-progression:https://asciinema.org/a/iBaR4qmhPDzkAQzQ4hAxt5sEV
     
-brain-gcd:
-
-<a href="https://asciinema.org/a/7KTRFqTAmnYMtWYfWRFZOlPwd" target="_blank">.
-
-brain-progression:
-
-<a href="https://asciinema.org/a/iBaR4qmhPDzkAQzQ4hAxt5sEV" target="_blank">.
-    
-brain-prime:
-
-<a href="https://asciinema.org/a/x8zQfYQaq7RajMgbfNThFsuOQ" target="_blank">.
+brain-prime:https://asciinema.org/a/x8zQfYQaq7RajMgbfNThFsuOQ
