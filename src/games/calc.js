@@ -9,7 +9,7 @@ const getRandomSign = () => {
   return allSigns[getRandomInt(0, allSigns.length - 1)];
 };
 
-const calculator = (sign, num1, num2) => {
+const calculate = (sign, num1, num2) => {
   let result = 0;
   switch (sign) {
     case '+':
@@ -29,13 +29,13 @@ const calculator = (sign, num1, num2) => {
   return result;
 };
 
-const questionCalc = () => {
+const gameCalc = () => {
   const sign = getRandomSign();
   const num1 = getRandomInt(1, 50);
   const num2 = getRandomInt(1, 50);
   const question = `${num1} ${sign} ${num2}`;
-  const correctAnswer = calculator(sign, num1, num2);
+  const correctAnswer = calculate(sign, num1, num2);
   return cons(question, correctAnswer);
 };
 
-export default () => gameEngine(ruleOfGame, questionCalc);
+export default () => gameEngine(ruleOfGame, gameCalc);

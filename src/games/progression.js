@@ -4,23 +4,23 @@ import getRandomInt from '../utils';
 
 const ruleOfGame = 'What number is missing in the progression?';
 
-const questionProgression = () => {
-  let num = getRandomInt(1, 50);
+const gameProgression = () => {
+  let currentNum = getRandomInt(1, 50);
   const intervalBetweenNumbers = getRandomInt(1, 50);
   const spacePlace = getRandomInt(0, 10);
-  let result = '';
-  const spaceNum = num + ((spacePlace + 1) * intervalBetweenNumbers);
+  let listOfNumbers = '';
+  const spaceNum = currentNum + ((spacePlace + 1) * intervalBetweenNumbers);
   for (let count = 0; count < 10; count += 1) {
-    num += intervalBetweenNumbers;
+    currentNum += intervalBetweenNumbers;
     if (spacePlace === count) {
-      result += '.. ';
+      listOfNumbers += '.. ';
     } else {
-      result += `${num} `;
+      listOfNumbers += `${currentNum} `;
     }
   }
-  const question = result;
+  const question = listOfNumbers;
   const correctAnswer = spaceNum;
   return cons(question, correctAnswer);
 };
 
-export default () => gameEngine(ruleOfGame, questionProgression);
+export default () => gameEngine(ruleOfGame, gameProgression);

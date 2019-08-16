@@ -30,7 +30,7 @@ const getGcd = (number1, number2) => {
   return findGcd(number1, number2, 2, 1);
 };
 
-const questionGcd = () => {
+const gameGcd = () => {
   const num1 = getRandomInt(1, 50);
   const num2 = getRandomInt(1, 50);
   const question = `${num1} ${num2}`;
@@ -38,4 +38,4 @@ const questionGcd = () => {
   return cons(question, correctAnswer);
 };
 
-export default () => gameEngine(ruleOfGame, questionGcd);
+export default () => gameEngine(ruleOfGame, gameGcd);

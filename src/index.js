@@ -1,28 +1,25 @@
 import readlineSync from 'readline-sync';
 import { cons, car, cdr } from 'hexlet-pairs';
 
-const begin = (task) => {
+const beginWithTask = (task) => {
   console.log('Welcome to the Brain Games!');
   console.log(task);
 };
 
-const name = () => {
+const getName = () => {
   console.log('');
-  const actual = readlineSync.question('May I have your name? ');
-  console.log(`Hello, ${actual}!`);
+  const username = readlineSync.question('May I have your name? ');
+  console.log(`Hello, ${username}!`);
   console.log('');
-  return actual;
+  return username;
 };
 
-const resultOfAnswer = (game, username) => {
+const isCorrectAnswer = (game, username) => {
   const question = car(game);
   const correctAnswer = cdr(game);
   console.log(`Question: ${question}`);
-  const answer = () => {
-    const actual = readlineSync.question('Your answer: ');
-    return actual;
-  };
-  const userAnswer = answer();
+  const getAnswer = () => readlineSync.question('Your answer: ');
+  const userAnswer = getAnswer();
   if (`${userAnswer}` === `${correctAnswer}`) {
     console.log('Correct!');
     return true;
@@ -32,14 +29,14 @@ const resultOfAnswer = (game, username) => {
   return false;
 };
 
-const repeat = (game, username) => {
-  let question = game();
-  let roundOfGame = 1;
-  let result = resultOfAnswer(question, username);
-  while (result && roundOfGame < 3) {
-    question = game();
-    result = resultOfAnswer(question, username);
-    if (result) {
+const playGameThreeTimes = (game, username) => {
+  let quest;
+  let result;
+  let roundOfGame = 0;
+  while ((result === true && roundOfGame < 3) || roundOfGame === 0) {
+    quest = game();
+    result = isCorrectAnswer(quest, username);
+    if (result || roundOfGame === 0) {
       roundOfGame += 1;
     }
   }
@@ -49,9 +46,9 @@ const repeat = (game, username) => {
 };
 
 const gameEngine = (ruleOfGame, game) => {
-  begin(ruleOfGame);
-  const username = name();
-  repeat(game, username);
+  beginWithTask(ruleOfGame);
+  const username = getName();
+  playGameThreeTimes(game, username);
 };
 
 export { cons, gameEngine };
