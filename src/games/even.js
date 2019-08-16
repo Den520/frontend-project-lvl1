@@ -1,21 +1,18 @@
 #!/usr/bin/env node
 import {
-  gameEngine, resultOfAnswer, randomNum,
+  gameEngine, resultOfAnswer,
 } from '..';
+import getRandomInt from '../utils';
 
 const ruleOfGame = 'Answer "yes" if number even otherwise answer "no".';
 
-const isEven = (num) => {
-  const result = (num % 2 === 0) ? 'yes' : 'no';
-  return result;
-};
+const isEven = num => num % 2 === 0;
 
 const questionEven = (username) => {
-  const number = randomNum();
-  const question = number;
-  const correctAnswer = isEven(number);
+  const num = getRandomInt(1, 50);
+  const question = num;
+  const correctAnswer = (isEven(num)) ? 'yes' : 'no';
   return resultOfAnswer(question, username, correctAnswer);
 };
-const evenGame = () => gameEngine(ruleOfGame, questionEven);
 
-export default evenGame;
+export default () => gameEngine(ruleOfGame, questionEven);

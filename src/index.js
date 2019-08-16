@@ -27,13 +27,6 @@ const repeat = (quest, username) => {
   }
 };
 
-export const randomNum = () => {
-  const max = 50;
-  return Math.floor(Math.random() * (max)) + 1;
-};
-
-export const randomInRange = range => Math.floor(Math.random() * range);
-
 export const resultOfAnswer = (question, username, correctAnswer) => {
   console.log(`Question: ${question}`);
   const answer = () => {

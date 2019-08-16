@@ -1,14 +1,15 @@
 #!/usr/bin/env node
 import {
-  gameEngine, resultOfAnswer, randomNum, randomInRange,
+  gameEngine, resultOfAnswer,
 } from '..';
+import getRandomInt from '../utils';
 
 const ruleOfGame = 'What number is missing in the progression?';
 
 const questionProgression = (username) => {
-  let num1 = randomNum();
-  const interval = randomNum();
-  const space = randomInRange(10);
+  let num1 = getRandomInt(1, 50);
+  const interval = getRandomInt(1, 50);
+  const space = getRandomInt(0, 10);
   let result = '';
   const spaceNum = num1 + ((space + 1) * interval);
   for (let count = 0; count < 10; count += 1) {
@@ -24,6 +25,4 @@ const questionProgression = (username) => {
   return resultOfAnswer(question, username, correctAnswer);
 };
 
-const progressionGame = () => gameEngine(ruleOfGame, questionProgression);
-
-export default progressionGame;
+export default () => gameEngine(ruleOfGame, questionProgression);

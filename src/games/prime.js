@@ -1,35 +1,26 @@
 #!/usr/bin/env node
 import {
-  gameEngine, resultOfAnswer, randomNum,
+  gameEngine, resultOfAnswer,
 } from '..';
+import getRandomInt from '../utils';
 
 const ruleOfGame = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
-const isPrime = (num, firstResult, firstCount) => {
-  let result = firstResult;
-  let count = firstCount;
-  switch (true) {
-    case (count > num):
-      return result === 2 ? 'yes' : 'no';
-
-    case (num % count === 0):
+const isPrime = (num) => {
+  let result = 0;
+  for (let count = 1; num >= count; count += 1) {
+    if (num % count === 0) {
       result += 1;
-      count += 1;
-      return isPrime(num, result, count);
-
-    default:
-      count += 1;
-      return isPrime(num, result, count);
+    }
   }
+  return result === 2;
 };
 
 const questionPrime = (username) => {
-  const num = randomNum();
+  const num = getRandomInt(1, 50);
   const question = num;
-  const correctAnswer = isPrime(num, 0, 1);
+  const correctAnswer = (isPrime(num)) ? 'yes' : 'no';
   return resultOfAnswer(question, username, correctAnswer);
 };
 
-const primeGame = () => gameEngine(ruleOfGame, questionPrime);
-
-export default primeGame;
+export default () => gameEngine(ruleOfGame, questionPrime);
