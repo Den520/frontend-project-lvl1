@@ -1,28 +1,26 @@
 #!/usr/bin/env node
-import {
-  gameEngine, resultOfAnswer,
-} from '..';
+import { gameEngine, cons } from '..';
 import getRandomInt from '../utils';
 
 const ruleOfGame = 'What number is missing in the progression?';
 
-const questionProgression = (username) => {
-  let num1 = getRandomInt(1, 50);
-  const interval = getRandomInt(1, 50);
-  const space = getRandomInt(0, 10);
+const questionProgression = () => {
+  let num = getRandomInt(1, 50);
+  const intervalBetweenNumbers = getRandomInt(1, 50);
+  const spacePlace = getRandomInt(0, 10);
   let result = '';
-  const spaceNum = num1 + ((space + 1) * interval);
+  const spaceNum = num + ((spacePlace + 1) * intervalBetweenNumbers);
   for (let count = 0; count < 10; count += 1) {
-    num1 += interval;
-    if (space === count) {
+    num += intervalBetweenNumbers;
+    if (spacePlace === count) {
       result += '.. ';
     } else {
-      result += `${num1} `;
+      result += `${num} `;
     }
   }
   const question = result;
   const correctAnswer = spaceNum;
-  return resultOfAnswer(question, username, correctAnswer);
+  return cons(question, correctAnswer);
 };
 
 export default () => gameEngine(ruleOfGame, questionProgression);

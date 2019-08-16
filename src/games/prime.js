@@ -1,7 +1,5 @@
 #!/usr/bin/env node
-import {
-  gameEngine, resultOfAnswer,
-} from '..';
+import { gameEngine, cons } from '..';
 import getRandomInt from '../utils';
 
 const ruleOfGame = 'Answer "yes" if given number is prime. Otherwise answer "no".';
@@ -16,11 +14,11 @@ const isPrime = (num) => {
   return result === 2;
 };
 
-const questionPrime = (username) => {
+const questionPrime = () => {
   const num = getRandomInt(1, 50);
   const question = num;
   const correctAnswer = (isPrime(num) === true) ? 'yes' : 'no';
-  return resultOfAnswer(question, username, correctAnswer);
+  return cons(question, correctAnswer);
 };
 
 export default () => gameEngine(ruleOfGame, questionPrime);

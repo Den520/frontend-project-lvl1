@@ -1,4 +1,5 @@
 import readlineSync from 'readline-sync';
+import { cons, car, cdr } from 'hexlet-pairs';
 
 const begin = (task) => {
   console.log('Welcome to the Brain Games!');
@@ -13,21 +14,9 @@ const name = () => {
   return actual;
 };
 
-const repeat = (quest, username) => {
-  let question1 = quest(username);
-  let count = 0;
-  while (question1 === true && count < 2) {
-    question1 = quest(username);
-    if (question1 === true) {
-      count += 1;
-    }
-  }
-  if (count === 2) {
-    console.log(`Congratulations, ${username}!`);
-  }
-};
-
-export const resultOfAnswer = (question, username, correctAnswer) => {
+const resultOfAnswer = (game, username) => {
+  const question = car(game);
+  const correctAnswer = cdr(game);
   console.log(`Question: ${question}`);
   const answer = () => {
     const actual = readlineSync.question('Your answer: ');
@@ -43,8 +32,26 @@ export const resultOfAnswer = (question, username, correctAnswer) => {
   return false;
 };
 
-export const gameEngine = (ruleOfGame, game) => {
+const repeat = (game, username) => {
+  let question = game();
+  let roundOfGame = 1;
+  let result = resultOfAnswer(question, username);
+  while (result && roundOfGame < 3) {
+    question = game();
+    result = resultOfAnswer(question, username);
+    if (result) {
+      roundOfGame += 1;
+    }
+  }
+  if (roundOfGame === 3) {
+    console.log(`Congratulations, ${username}!`);
+  }
+};
+
+const gameEngine = (ruleOfGame, game) => {
   begin(ruleOfGame);
   const username = name();
   repeat(game, username);
 };
+
+export { cons, gameEngine };

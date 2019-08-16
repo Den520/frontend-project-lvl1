@@ -1,6 +1,6 @@
 {
   "name": "@naruto02123/project",
-  "version": "1.6.10",
+  "version": "1.6.11",
   "description": "Games to pump your brain :)",
   "keywords": [
     "Brain games"
@@ -28,6 +28,7 @@
   "author": "Tariel Musaev",
   "license": "ISC",
   "dependencies": {
+    "hexlet-pairs": "^1.0.8",
     "readline-sync": "^1.4.10"
   },
   "devDependencies": {

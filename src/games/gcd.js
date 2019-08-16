@@ -1,7 +1,5 @@
 #!/usr/bin/env node
-import {
-  gameEngine, resultOfAnswer,
-} from '..';
+import { gameEngine, cons } from '..';
 import getRandomInt from '../utils';
 
 const ruleOfGame = 'Find the greatest common divisor of given numbers.';
@@ -32,12 +30,12 @@ const getGcd = (number1, number2) => {
   return findGcd(number1, number2, 2, 1);
 };
 
-const questionGcd = (username) => {
+const questionGcd = () => {
   const num1 = getRandomInt(1, 50);
   const num2 = getRandomInt(1, 50);
   const question = `${num1} ${num2}`;
   const correctAnswer = getGcd(num1, num2);
-  return resultOfAnswer(question, username, correctAnswer);
+  return cons(question, correctAnswer);
 };
 
 export default () => gameEngine(ruleOfGame, questionGcd);

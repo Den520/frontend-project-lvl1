@@ -1,14 +1,12 @@
 #!/usr/bin/env node
-import {
-  gameEngine, resultOfAnswer,
-} from '..';
+import { gameEngine, cons } from '..';
 import getRandomInt from '../utils';
 
 const ruleOfGame = 'What is the result of the expression?';
 
 const getRandomSign = () => {
   const allSigns = '+-*';
-  return allSigns[getRandomInt(0, allSigns.length)];
+  return allSigns[getRandomInt(0, allSigns.length - 1)];
 };
 
 const calculator = (sign, num1, num2) => {
@@ -31,13 +29,13 @@ const calculator = (sign, num1, num2) => {
   return result;
 };
 
-const questionCalc = (username) => {
+const questionCalc = () => {
   const sign = getRandomSign();
   const num1 = getRandomInt(1, 50);
   const num2 = getRandomInt(1, 50);
   const question = `${num1} ${sign} ${num2}`;
   const correctAnswer = calculator(sign, num1, num2);
-  return resultOfAnswer(question, username, correctAnswer);
+  return cons(question, correctAnswer);
 };
 
 export default () => gameEngine(ruleOfGame, questionCalc);
