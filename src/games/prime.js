@@ -1,23 +1,21 @@
-#!/usr/bin/env node
 import { gameEngine, cons } from '..';
 import getRandomInt from '../utils';
 
 const ruleOfGame = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
 const isPrime = (num) => {
-  let divisorsCount = 0;
-  for (let count = 1; num >= count; count += 1) {
-    if (num % count === 0) {
-      divisorsCount += 1;
+  for (let count = 2; num === 1 || count !== num; count += 1) {
+    if (num === 1 || num % count === 0) {
+      return false;
     }
   }
-  return divisorsCount === 2;
+  return true;
 };
 
 const gamePrime = () => {
   const num = getRandomInt(1, 50);
   const question = num;
-  const correctAnswer = (isPrime(num) === true) ? 'yes' : 'no';
+  const correctAnswer = isPrime(num) ? 'yes' : 'no';
   return cons(question, correctAnswer);
 };
 

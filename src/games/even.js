@@ -1,4 +1,3 @@
-#!/usr/bin/env node
 import { gameEngine, cons } from '..';
 import getRandomInt from '../utils';
 

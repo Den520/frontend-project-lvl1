@@ -30,17 +30,17 @@ const isCorrectAnswer = (game, username) => {
 };
 
 const playGameThreeTimes = (game, username) => {
-  let quest;
+  const totalRounds = 3;
   let result = true;
   let roundOfGame = 0;
-  while (result && roundOfGame < 3) {
+  for (let quest; result && roundOfGame < totalRounds;) {
     quest = game();
     result = isCorrectAnswer(quest, username);
     if (result) {
       roundOfGame += 1;
     }
   }
-  if (roundOfGame === 3) {
+  if (roundOfGame === totalRounds) {
     console.log(`Congratulations, ${username}!`);
   }
 };

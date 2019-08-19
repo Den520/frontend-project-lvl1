@@ -1,33 +1,13 @@
-#!/usr/bin/env node
 import { gameEngine, cons } from '..';
 import getRandomInt from '../utils';
 
 const ruleOfGame = 'Find the greatest common divisor of given numbers.';
 
-const getGcd = (number1, number2) => {
-  const findGcd = (num1, num2, divider, result) => {
-    switch (true) {
-      case (num1 || num2) % divider === 0:
-        switch (true) {
-          case (num1 && num2) % divider === 0:
-            return findGcd(num1 / divider, num2 / divider, divider, result * divider);
-
-          case num1 % divider === 0:
-            return findGcd(num1 / divider, num2, divider, result);
-
-          case num2 % divider === 0:
-            return findGcd(num1, num2 / divider, divider, result);
-          default:
-        }
-        return result;
-      case divider < (num1 && num2):
-        return findGcd(num1, num2, divider + 1, result);
-
-      default:
-        return result;
-    }
-  };
-  return findGcd(number1, number2, 2, 1);
+const getGcd = (num1, num2) => {
+  if (num2 === 0) {
+    return num1;
+  }
+  return getGcd(num2, num1 % num2);
 };
 
 const gameGcd = () => {
