@@ -1,26 +1,12 @@
 import readlineSync from 'readline-sync';
 import { cons, car, cdr } from 'hexlet-pairs';
 
-const beginWithTask = (task) => {
-  console.log('Welcome to the Brain Games!');
-  console.log(task);
-};
-
-const getName = () => {
-  console.log('');
-  const username = readlineSync.question('May I have your name? ');
-  console.log(`Hello, ${username}!`);
-  console.log('');
-  return username;
-};
-
 const isCorrectAnswer = (game, username) => {
   const question = car(game);
   const correctAnswer = cdr(game);
   console.log(`Question: ${question}`);
-  const getAnswer = () => readlineSync.question('Your answer: ');
-  const userAnswer = getAnswer();
-  if (`${userAnswer}` === `${correctAnswer}`) {
+  const userAnswer = readlineSync.question('Your answer: ');
+  if (userAnswer === correctAnswer) {
     console.log('Correct!');
     return true;
   }
@@ -29,8 +15,9 @@ const isCorrectAnswer = (game, username) => {
   return false;
 };
 
+const totalRounds = 3;
+
 const playGameThreeTimes = (game, username) => {
-  const totalRounds = 3;
   let result = true;
   let roundOfGame = 0;
   for (let quest; result && roundOfGame < totalRounds;) {
@@ -38,6 +25,8 @@ const playGameThreeTimes = (game, username) => {
     result = isCorrectAnswer(quest, username);
     if (result) {
       roundOfGame += 1;
+    } else {
+      return;
     }
   }
   if (roundOfGame === totalRounds) {
@@ -46,8 +35,12 @@ const playGameThreeTimes = (game, username) => {
 };
 
 const gameEngine = (ruleOfGame, game) => {
-  beginWithTask(ruleOfGame);
-  const username = getName();
+  console.log('Welcome to the Brain Games!');
+  console.log(ruleOfGame);
+  console.log('');
+  const username = readlineSync.question('May I have your name? ');
+  console.log(`Hello, ${username}!`);
+  console.log('');
   playGameThreeTimes(game, username);
 };
 

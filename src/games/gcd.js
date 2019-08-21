@@ -14,7 +14,7 @@ const gameGcd = () => {
   const num1 = getRandomInt(1, 50);
   const num2 = getRandomInt(1, 50);
   const question = `${num1} ${num2}`;
-  const correctAnswer = getGcd(num1, num2);
+  const correctAnswer = `${getGcd(num1, num2)}`;
   return cons(question, correctAnswer);
 };
 

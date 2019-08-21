@@ -4,8 +4,8 @@ import getRandomInt from '../utils';
 const ruleOfGame = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
 const isPrime = (num) => {
-  for (let count = 2; num === 1 || count !== num; count += 1) {
-    if (num === 1 || num % count === 0) {
+  for (let count = 2; count !== num; count += 1) {
+    if (num < 2 || num % count === 0) {
       return false;
     }
   }
