@@ -20,12 +20,10 @@ const totalRounds = 3;
 const playGameThreeTimes = (game, username) => {
   let result = true;
   let roundOfGame = 0;
-  for (let quest; result && roundOfGame < totalRounds;) {
+  for (let quest; roundOfGame < totalRounds; roundOfGame += 1) {
     quest = game();
     result = isCorrectAnswer(quest, username);
-    if (result) {
-      roundOfGame += 1;
-    } else {
+    if (result === false) {
       return;
     }
   }
