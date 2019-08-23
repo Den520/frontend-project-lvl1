@@ -18,18 +18,12 @@ const isCorrectAnswer = (game, username) => {
 const totalRounds = 3;
 
 const playGameThreeTimes = (game, username) => {
-  let result = true;
-  let roundOfGame = 0;
-  for (let quest; roundOfGame < totalRounds; roundOfGame += 1) {
-    quest = game();
-    result = isCorrectAnswer(quest, username);
-    if (result === false) {
+  for (let roundOfGame = 0; roundOfGame < totalRounds; roundOfGame += 1) {
+    if (!isCorrectAnswer(game(), username)) {
       return;
     }
   }
-  if (roundOfGame === totalRounds) {
-    console.log(`Congratulations, ${username}!`);
-  }
+  console.log(`Congratulations, ${username}!`);
 };
 
 const gameEngine = (ruleOfGame, game) => {

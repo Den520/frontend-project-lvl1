@@ -33,7 +33,7 @@ const gameCalc = () => {
   const num1 = getRandomInt(1, 50);
   const num2 = getRandomInt(1, 50);
   const question = `${num1} ${sign} ${num2}`;
-  const correctAnswer = `${calculate(sign, num1, num2)}`;
+  const correctAnswer = calculate(sign, num1, num2).toString();
   return cons(question, correctAnswer);
 };
 
