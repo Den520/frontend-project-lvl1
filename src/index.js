@@ -19,7 +19,7 @@ const totalRounds = 3;
 
 const playGameThreeTimes = (game, username) => {
   for (let roundOfGame = 0; roundOfGame < totalRounds; roundOfGame += 1) {
-    let playGame = isCorrectAnswer(game(), username);
+    const playGame = isCorrectAnswer(game(), username);
     if (!playGame) {
       return;
     }
