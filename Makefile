@@ -6,6 +6,6 @@ publish:
 	npm publish --dry-run
 begin:
 	make publish
-	sudo npm link
+	npm link
 lint:
 	npx eslint .
