@@ -3,12 +3,7 @@ import getRandomInt from '../utils';
 
 const ruleOfGame = 'Find the greatest common divisor of given numbers.';
 
-const getGcd = (num1, num2) => {
-  if (num2 === 0) {
-    return num1;
-  }
-  return getGcd(num2, num1 % num2);
-};
+const getGcd = (num1, num2) => num2 === 0 ? num1 : getGcd(num2, num1 % num2);
 
 const gameGcd = () => {
   const num1 = getRandomInt(1, 50);
